@@ -1,0 +1,168 @@
+/* Astryx 设计系统样式由 main.tsx 按 reset → components → theme 顺序导入 */
+
+:root {
+  --pp-bg: #f6f7f9;
+  --pp-card: #ffffff;
+  --pp-border: #e8ebf0;
+  --pp-text: #111827;
+  --pp-muted: #64748b;
+  --pp-primary: #2563eb;
+  --pp-green: #16a34a;
+  --pp-amber: #d97706;
+  --pp-red: #dc2626;
+  --pp-sidebar: #101828;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--pp-bg);
+  color: var(--pp-text);
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pp-app { display: flex; min-height: 100vh; }
+.pp-sidebar {
+  width: 232px; flex: none; background: var(--pp-sidebar);
+  color: #cbd5e1; display: flex; flex-direction: column;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.pp-brand { padding: 20px 18px 16px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.pp-brand-title { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 17px; font-weight: 700; letter-spacing: .2px; }
+.pp-brand-logo { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg,#3b82f6,#8b5cf6); display: grid; place-items: center; font-weight: 800; font-size: 15px; }
+.pp-brand-sub { margin-top: 6px; font-size: 11px; color: #94a3b8; letter-spacing: .6px; }
+.pp-nav { padding: 12px 8px 24px; flex: 1; }
+.pp-nav-group { margin: 14px 10px 6px; font-size: 10px; letter-spacing: 1.2px; color: #64748b; text-transform: uppercase; }
+.pp-nav-item {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; margin: 2px 0; border: 0; border-radius: 8px;
+  background: transparent; color: #cbd5e1; font-size: 13px;
+  cursor: pointer; text-align: left; border-left: 3px solid transparent;
+}
+.pp-nav-item:hover { background: rgba(255,255,255,.06); color: #fff; }
+.pp-nav-item.active { background: rgba(59,130,246,.16); color: #fff; border-left-color: #3b82f6; font-weight: 600; }
+.pp-nav-icon { width: 16px; text-align: center; opacity: .9; }
+.pp-sidebar-foot { padding: 14px 18px; border-top: 1px solid rgba(255,255,255,.08); font-size: 11px; color: #64748b; line-height: 1.6; }
+
+.pp-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pp-topbar {
+  height: 62px; flex: none; background: #fff; border-bottom: 1px solid var(--pp-border);
+  display: flex; align-items: center; gap: 16px; padding: 0 24px;
+  position: sticky; top: 0; z-index: 10;
+}
+.pp-topbar h1 { margin: 0; font-size: 16px; font-weight: 650; }
+.pp-topbar-spacer { flex: 1; }
+.pp-env { font-size: 11px; padding: 4px 9px; border-radius: 999px; background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.pp-health { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--pp-muted); }
+.pp-health-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pp-green); box-shadow: 0 0 0 3px #dcfce7; }
+.pp-health-dot.down { background: var(--pp-red); box-shadow: 0 0 0 3px #fee2e2; }
+.pp-content { padding: 22px 24px 40px; width: 100%; max-width: 1640px; margin: 0 auto; }
+.pp-page-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.pp-page-head h2 { margin: 0 0 4px; font-size: 20px; font-weight: 680; }
+.pp-page-head p { margin: 0; color: var(--pp-muted); font-size: 12.5px; }
+
+.pp-kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin-bottom: 18px; }
+.pp-kpi { background: var(--pp-card); border: 1px solid var(--pp-border); border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(16,24,40,.03); }
+.pp-kpi-label { font-size: 12px; color: var(--pp-muted); display: flex; align-items: center; gap: 6px; }
+.pp-kpi-value { font-size: 26px; font-weight: 700; letter-spacing: -.5px; margin: 8px 0 4px; }
+.pp-kpi-sub { font-size: 11.5px; color: var(--pp-muted); }
+.pp-kpi-accent { width: 3px; height: 34px; border-radius: 3px; float: right; background: var(--pp-primary); opacity: .8; }
+
+.pp-grid-2 { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 16px; margin-bottom: 16px; }
+.pp-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-bottom: 16px; }
+.pp-panel { background: var(--pp-card); border: 1px solid var(--pp-border); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(16,24,40,.03); margin-bottom: 16px; }
+.pp-panel-head { padding: 14px 18px; border-bottom: 1px solid #eef0f4; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pp-panel-title { font-size: 14px; font-weight: 650; }
+.pp-panel-sub { font-size: 11.5px; color: var(--pp-muted); margin-top: 2px; }
+.pp-panel-body { padding: 16px 18px; }
+.pp-panel-body.flush { padding: 0; }
+
+.pp-data-table { width: 100%; border-collapse: collapse; font-size: 12.8px; }
+.pp-data-table th { background: #fafbfc; text-align: left; padding: 10px 14px; color: var(--pp-muted); font-weight: 600; border-bottom: 1px solid #eef0f4; white-space: nowrap; }
+.pp-data-table td { padding: 10px 14px; border-bottom: 1px solid #f2f4f7; vertical-align: middle; }
+.pp-data-table tbody tr:last-child td { border-bottom: 0; }
+.pp-data-table tbody tr:hover td { background: #fafbff; }
+.pp-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+.pp-muted { color: var(--pp-muted); }
+.pp-right { text-align: right; }
+.pp-strong { font-weight: 650; }
+
+.pp-toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.pp-input { width: 100%; padding: 8px 11px; border: 1px solid #d8dee9; border-radius: 8px; font-size: 13px; background: #fff; color: var(--pp-text); outline: none; }
+.pp-input:focus { border-color: #93b4fd; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+.pp-select { padding: 8px 10px; border: 1px solid #d8dee9; border-radius: 8px; font-size: 13px; background: #fff; color: var(--pp-text); }
+.pp-form-row { margin-bottom: 14px; }
+.pp-form-label { display: block; font-size: 12px; color: var(--pp-muted); margin-bottom: 6px; }
+.pp-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.pp-modal-backdrop { position: fixed; inset: 0; background: rgba(15,23,42,.48); display: flex; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
+.pp-modal { width: 620px; max-width: 100%; max-height: 88vh; overflow-y: auto; background: #fff; border-radius: 14px; box-shadow: 0 24px 64px rgba(15,23,42,.24); }
+.pp-modal-head { padding: 18px 22px; border-bottom: 1px solid var(--pp-border); display: flex; align-items: center; justify-content: space-between; }
+.pp-modal-title { font-size: 16px; font-weight: 650; }
+.pp-modal-body { padding: 20px 22px; }
+.pp-modal-foot { padding: 14px 22px; border-top: 1px solid var(--pp-border); display: flex; justify-content: flex-end; gap: 10px; }
+.pp-close { border: 0; background: transparent; font-size: 20px; color: var(--pp-muted); cursor: pointer; line-height: 1; }
+
+.pp-alert { padding: 11px 14px; border-radius: 9px; font-size: 12.5px; line-height: 1.6; margin-bottom: 14px; }
+.pp-alert.info { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.pp-alert.warn { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.pp-alert.danger { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.pp-alert.ok { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+
+.pp-stat-row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed #eef0f4; font-size: 13px; }
+.pp-stat-row:last-child { border-bottom: 0; }
+.pp-pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; background: #f1f5f9; color: #475569; }
+.pp-bar { height: 6px; border-radius: 4px; background: #eef2f7; overflow: hidden; }
+.pp-bar > span { display: block; height: 100%; background: linear-gradient(90deg,#3b82f6,#6366f1); border-radius: 4px; }
+
+.pp-qr-frame { width: 210px; height: 210px; margin: 0 auto; padding: 10px; background: #fff; border: 1px solid var(--pp-border); border-radius: 12px; box-shadow: 0 4px 16px rgba(16,24,40,.08); }
+.pp-code-block { background: #0f172a; color: #e2e8f0; border-radius: 9px; padding: 14px 16px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11.5px; line-height: 1.7; white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow-y: auto; }
+.pp-drill-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.pp-drill-btn { padding: 10px 12px; border: 1px solid var(--pp-border); border-radius: 9px; background: #fff; text-align: left; cursor: pointer; font-size: 12.5px; }
+.pp-drill-btn:hover { border-color: #93b4fd; background: #f8faff; }
+.pp-drill-btn b { display: block; font-size: 13px; margin-bottom: 3px; }
+.pp-drill-btn span { color: var(--pp-muted); font-size: 11.5px; }
+/* Astryx Theme Provider 会向子树注入主题文字色（默认深底浅字），
+   这里把自定义容器显式锚定回浅色主题，避免继承成白字白底。 */
+.pp-topbar h1,
+.pp-page-head h2,
+.pp-kpi,
+.pp-kpi-value,
+.pp-panel,
+.pp-panel-body,
+.pp-panel-title,
+.pp-stat-row,
+.pp-strong,
+.pp-data-table td,
+.pp-form-row,
+.pp-form-grid,
+.pp-modal,
+.pp-modal-body,
+.pp-modal-title,
+.pp-drill-btn,
+.pp-drill-btn b,
+.pp-flex,
+.pp-wrap,
+.pp-right { color: var(--pp-text); }
+
+.pp-empty { padding: 36px 16px; text-align: center; color: var(--pp-muted); font-size: 13px; }
+.pp-error { color: var(--pp-red); font-size: 12.5px; }
+.pp-link { color: var(--pp-primary); cursor: pointer; border: 0; background: transparent; font-size: 12.5px; padding: 0; }
+.pp-flex { display: flex; align-items: center; gap: 8px; }
+.pp-wrap { flex-wrap: wrap; }
+.pp-spark { width: 100%; height: 148px; }
+
+@media (max-width: 1180px) {
+  .pp-kpi-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .pp-grid-2, .pp-grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .pp-sidebar { width: 64px; }
+  .pp-brand-title span, .pp-brand-sub, .pp-nav-group, .pp-nav-item span, .pp-sidebar-foot { display: none; }
+  .pp-nav-item { justify-content: center; }
+  .pp-kpi-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "pivotpay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "云枢支付 PivotPay - 基于 DDD 的高可用云端支付平台 (SaaS)",
+  "workspaces": [
+    "apps/api",
+    "apps/web",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run build:api && node --experimental-sqlite apps/api/dist/main.js",
+    "dev:web": "vite --config apps/web/vite.config.ts",
+    "build": "npm run build:api && npm run build:web",
+    "build:api": "tsc -p apps/api/tsconfig.json",
+    "build:web": "vite build --config apps/web/vite.config.ts",
+    "start": "node --experimental-sqlite apps/api/dist/main.js",
+    "test": "node scripts/smoke-test.mjs",
+    "check": "node scripts/smoke-test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.5"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  }
+}
