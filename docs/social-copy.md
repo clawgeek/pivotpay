@@ -2,7 +2,8 @@
 
 > 配套成片：`video/云枢支付PivotPay_项目讲解_1080p.mp4`（1920×1080 / 25fps / 4:00 / 中英双语烧录字幕 + 外挂 SRT）
 > 使用说明：以下文案可直接复制发布；`[ ]` 内为按平台自行替换项。所有平台请保留「合规口径」那一句。
-> 统一口径：这是**沙箱演示系统**，不接真实资金、不提供支付服务；源码与文档随项目交付。
+> 仓库地址（所有平台统一）：https://github.com/clawgeek/pivotpay
+> 统一口径：这是**沙箱演示系统**，不接真实资金、不提供支付服务；源码与文档已在上述公开仓库。
 
 ---
 
@@ -23,6 +24,7 @@
 | 演示 | 浏览器 Web Crypto 真实算签名下单 → 二维码 → 4 种回调演练 |
 | 验证 | 43 项端到端冒烟测试全通过，前后端类型检查与生产构建零错误 |
 | 依赖 | Node 22 内置 SQLite，零外部服务，单端口 3001 同时托管 UI 与 API |
+| 源码 | https://github.com/clawgeek/pivotpay（README + 3 份设计文档 + 43 项测试脚本） |
 
 ---
 
@@ -47,6 +49,7 @@
 技术栈：NestJS + TypeScript / React 19 + Meta 开源 Astryx 设计系统 / Node 22 内置 SQLite
 验证：43 项端到端冒烟测试全通过，tsc 零错误，vite build 通过
 规格：1080p 25fps，中英双语烧录字幕，外挂 SRT
+源码与文档：https://github.com/clawgeek/pivotpay
 
 章节
 00:00 封面
@@ -68,7 +71,8 @@
 说明：本项目为教学演示用的沙箱系统，四条模拟通道 + 三条持牌通道的适配器接口占位，
 不接入真实资金、不提供支付服务，不实现个人收款码免签 / 二清 / 资金池。
 生产化仍需替换 KMS、SSO+RBAC、PostgreSQL、Redis 与消息队列。
-源码与文档随项目交付，需要公开仓库地址可以评论区留言。
+源码与文档：https://github.com/clawgeek/pivotpay
+仓库里 README 是启动入口，docs/ 含 DDD 设计、API 清单与合规说明，欢迎 star / 提 issue 交流。
 ```
 
 ### 标签
@@ -88,7 +92,8 @@ HMAC 签名由浏览器 Web Crypto 计算，二维码、回调演练、故障切
 2. 领域层真的不依赖框架吗？—— 领域层是纯 TypeScript，替换数据库 / MQ 只动基础设施与适配层。
 3. 能直接上生产吗？—— 不能，还差 KMS、SSO+RBAC、PostgreSQL、Redis、CDC/MQ 和多副本幂等消费。
 
-完整目录：README / docs/ddd-design.md / docs/api-reference.md / docs/compliance.md。
+源码与完整目录：https://github.com/clawgeek/pivotpay
+README 是启动入口；docs/ddd-design.md 讲限界上下文与状态机，docs/api-reference.md 是接口清单，docs/compliance.md 是合规边界。
 ```
 
 ### 动态 / 短动态
@@ -97,6 +102,7 @@ HMAC 签名由浏览器 Web Crypto 计算，二维码、回调演练、故障切
 新视频上线｜4 分钟，把一套 DDD 高可用支付平台从聚合根讲到真实下单演示。
 7 个限界上下文 · 状态机 · 熔断 failover · Outbox · 复式记账 · 43 项测试全绿。
 1080p 中英双语字幕，章节已打点，建议从 02:39 的支付沙箱开始看。
+源码：https://github.com/clawgeek/pivotpay
 ```
 
 ---
@@ -155,9 +161,10 @@ React 19 + Meta 开源 Astryx 设计系统搭的十页 SaaS 控制台。
 好消息是：这些替换都只落在基础设施与适配层，领域层一行不用改——这正是 DDD 想要的解耦。
 
 配套 4 分钟讲解视频：1080p、中英双语字幕、含四段真实运行录屏与完整章节打点。
+源码与设计文档已放在公开仓库：https://github.com/clawgeek/pivotpay
 ```
 
-**文末引导**：`视频与文档随项目交付。想看哪一块展开讲（状态机 / 对账 / 熔断），留言告诉我。`
+**文末引导**：`源码与文档：https://github.com/clawgeek/pivotpay 。想看哪一块展开讲（状态机 / 对账 / 熔断），留言告诉我。`
 
 ---
 
@@ -188,6 +195,7 @@ React 19 + Meta 开源 Astryx 设计系统搭的十页 SaaS 控制台。
 说明一下：教学演示用的沙箱系统，四条模拟通道，不接真实资金、不提供支付服务，
 个人码免签 / 二清 / 资金池都没做，也不建议做。
 生产化还差 KMS、SSO、PostgreSQL、Redis、MQ，视频最后也如实讲了。
+源码在 GitHub：clawgeek/pivotpay（https://github.com/clawgeek/pivotpay）
 
 #DDD #领域驱动设计 #支付系统 #NestJS #TypeScript #React #后端开发 #软件架构 #项目实战 #编程学习
 ```
@@ -233,6 +241,7 @@ React 19 + Meta 开源 Astryx 设计系统搭的十页 SaaS 控制台。
 这些替换只涉及基础设施与适配层，领域层不用改，但**没替换之前不能叫生产可用**。
 
 43 项端到端测试、前后端类型检查与生产构建都跑过，视频里有真实运行录屏。
+源码与文档：https://github.com/clawgeek/pivotpay
 ```
 
 ---
@@ -246,9 +255,10 @@ React 19 + Meta 开源 Astryx 设计系统搭的十页 SaaS 控制台。
 7 个限界上下文 / 订单状态机 / 熔断 failover / Outbox + 复式记账 / HMAC + 租户隔离，
 最后 43 项端到端测试全绿。中英双语字幕，02:39 起是实机演示。
 教学沙箱系统，不接真实资金、不提供支付服务。
+源码：https://github.com/clawgeek/pivotpay
 ```
 
-**长版**：在短版后追加「技术栈 NestJS+React19+Astryx+Node22 内置 SQLite，零外部服务，单端口 3001；生产化还差 KMS/SSO/PostgreSQL/Redis/MQ，视频最后如实讲了。」
+**长版**：在短版后追加「技术栈 NestJS+React19+Astryx+Node22 内置 SQLite，零外部服务，单端口 3001；生产化还差 KMS/SSO/PostgreSQL/Redis/MQ，视频最后如实讲了；源码 https://github.com/clawgeek/pivotpay。」
 
 **话题**：`#DDD#` `#支付系统#` `#NestJS#` `#软件架构#` `#编程#`
 
@@ -279,6 +289,8 @@ Scope matters: this is a teaching sandbox with four simulated channels. No real 
 no payment service, no unlicensed clearing. Production would still need a KMS, SSO/RBAC,
 PostgreSQL, Redis and a real message broker — all of which sit outside the domain layer,
 which is rather the point of the exercise.
+
+Code and docs: https://github.com/clawgeek/pivotpay
 ```
 
 **X / Twitter（单条）**：
@@ -290,6 +302,7 @@ which is rather the point of the exercise.
 · outbox + double-entry ledger · HMAC + idempotency + tenant isolation · 43 E2E checks green.
 
 1080p, bilingual subs, real UI capture. Sandbox only, no real funds.
+Code: https://github.com/clawgeek/pivotpay
 ```
 
 ---
@@ -315,7 +328,7 @@ which is rather the point of the exercise.
 4 分钟完整版 / 中英双语字幕 / 含真实系统录屏
 02:24 驾驶舱 · 02:39 真实签名下单与二维码 · 02:59 故障注入与 failover · 03:29 43 项测试
 教学演示沙箱，不接真实资金、不提供支付服务。
-源码与文档随项目交付。
+源码与文档：https://github.com/clawgeek/pivotpay
 ```
 
 ---
@@ -353,5 +366,6 @@ which is rather the point of the exercise.
 - 不出现「可直接上生产」「资金安全」「支持真实收款」等表述；演示密钥是明文种子数据。
 - 不写具体第三方通道的对接教程或密钥；三条持牌通道只提「适配器接口占位」。
 - 视频里数字来自种子数据与当次真实请求，换库重跑会变，文案里用「43 项测试全绿」这类稳定事实，不用具体金额。
-- 若后续把源码推到公开仓库，把全文中的「源码与文档随项目交付」统一替换为仓库地址，并把页脚 PNG 一起重出。
+- 源码已推送到公开仓库 https://github.com/clawgeek/pivotpay；B 站简介、评论区置顶、各平台文末与视频页脚均已写入该地址。换地址时改 `_gen/update_social.py` 的 `REPO` 常量重跑，并同步 `_gen/make_footer.py`。
+- 公开仓库不要提交 `.env`、数据库文件与任何真实密钥；`.gitignore` 已排除 node_modules / dist / data/*.db / _video_parse。
 - 视频章节时间点对应 `video/page_timeline.json`；重新剪辑后要同步更新简介里的时间轴。
